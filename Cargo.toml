@@ -5,7 +5,6 @@ authors = ["Fabio Todaro <fbregist@gmail.com>", "Nicola Martino <mroci@bruttocar
 description = "Prometheus metrics exporter for Celery"
 edition = "2018"
 homepage = "https://github.com/OvalMoney/celery-exporter"
-license = "MIT"
 readme = "README.md"
 repository = "https://github.com/OvalMoney/celery-exporter.git"
 
@@ -18,22 +17,5 @@ version = "0.12.4"
 features = ["extension-module"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
 lru = "0.6.5"
-
-[package.metadata.maturin]
-classifier = [
-    "Development Status :: 4 - Beta",
-    "Environment :: Console",
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python",
-    "Programming Language :: Python :: 3.6",
-    "Programming Language :: Python :: 3 :: Only",
-    "Operating System :: OS Independent"
-]
-requires-dist = ["click>=7", "celery>=4,<5", "prometheus_client>=0.0.20", "redis>=3.2.0; extra == 'redis'"]
-provides-extra = ["redis"]
-
-[package.metadata.maturin.scripts]
-celery-exporter = "celery_exporter.__main__:main"

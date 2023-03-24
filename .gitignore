@@ -15,3 +15,6 @@ __pycache__
 htmlcov/
 dive.log
 .vscode
+bin/
+lib/
+pyvenv.cfg
