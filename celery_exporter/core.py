@@ -17,14 +17,12 @@ class CeleryExporter:
     def __init__(
         self,
         broker_url,
-        listen_address,
         max_tasks=10000,
         namespace="celery",
         transport_options=None,
         enable_events=False,
         broker_use_ssl=None,
     ):
-        self._listen_address = listen_address
         self._max_tasks = max_tasks
         self._namespace = namespace
         self._enable_events = enable_events
@@ -35,8 +33,6 @@ class CeleryExporter:
     def start(self):
 
         setup_metrics(self._app, self._namespace)
-
-        self._start_httpd()
 
         t = TaskThread(
             app=self._app,
@@ -54,12 +50,3 @@ class CeleryExporter:
             e = EnableEventsThread(app=self._app)
             e.daemon = True
             e.start()
-
-    def _start_httpd(self):  # pragma: no cover
-        """
-        Starts the exposing HTTPD using the addr provided in a separate
-        thread.
-        """
-        host, port = self._listen_address.split(":")
-        logging.info("Starting HTTPD on {}:{}".format(host, port))
-        prometheus_client.start_http_server(int(port), host)
