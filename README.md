@@ -1,8 +1,5 @@
 # Celery Exporter
 
-[![Travis CI](https://img.shields.io/travis/OvalMoney/celery-exporter.svg?style=flat)](https://travis-ci.org/OvalMoney/celery-exporter)
-[![Docker Hub](https://img.shields.io/docker/cloud/automated/ovalmoney/celery-exporter.svg?style=flat)](https://hub.docker.com/r/ovalmoney/celery-exporter/)
-
 Celery Exporter is a Prometheus metrics exporter for Celery 4, written in python.
 
 Here the list of exposed metrics:
@@ -43,10 +40,10 @@ $ celery-exporter
 ### Docker
 ```bash
 # Download image
-$ docker pull ovalmoney/celery-exporter
+$ docker pull REDLattice/celery-exporter
 
 # Run it
-$ docker run -it --rm ovalmoney/celery-exporter
+$ docker run -it --rm REDLattice/celery-exporter
 ```
 
 ### Command Options

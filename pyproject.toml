@@ -1,6 +1,6 @@
 [project]
 name = "celery_exporter"
-version = "1.5.2"
+version = "2.0.0"
 license = {text = "MIT License"}
 
 classifiers = [
@@ -12,7 +12,7 @@ classifiers = [
     "Programming Language :: Python :: 3 :: Only",
     "Operating System :: OS Independent"
 ]
-dependencies = ["click>=7", "celery>=4,<5", "prometheus_client>=0.0.20", "redis>=3.2.0; extra == 'redis'"]
+dependencies = ["celery>=4,<5", "prometheus_client>=0.0.20", "redis>=3.2.0; extra == 'redis'"]
 
 # [project.optional-dependencies]
 # redis = ["*"]
