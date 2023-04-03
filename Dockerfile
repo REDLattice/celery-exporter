@@ -28,5 +28,6 @@ RUN pip install -r ./requirements/requirements.txt
 
 RUN pip install wheelhouse/*
 
-ENTRYPOINT [ "uvicorn", "--factory", "celery_exporter:create_app" ]
+EXPOSE 4950
+ENTRYPOINT [ "uvicorn", "--factory", "celery_exporter:create_app", "--host", "0.0.0.0", "--port", "9540" ]
 CMD []
