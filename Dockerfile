@@ -1,9 +1,9 @@
 FROM ghcr.io/pyo3/maturin as build
 
 COPY . /io
-RUN maturin build --release -o /src/wheelhouse -i python3.8
+RUN maturin build --release -o /src/wheelhouse -i python3.9
 
-FROM python:3.8-buster as base-image
+FROM python:3.9-buster as base-image
 
 ARG BUILD_DATE
 ARG DOCKER_REPO
@@ -16,7 +16,7 @@ LABEL org.label-schema.schema-version="1.0" \
       org.label-schema.version=$VERSION \
       org.label-schema.description="Prometheus metrics exporter for Celery" \
       org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.vcs-url="https://github.com/OvalMoney/celery-exporter"
+      org.label-schema.vcs-url="https://github.com/RedLattice/celery-exporter"
 
 WORKDIR /app/
 
