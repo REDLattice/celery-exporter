@@ -1,7 +1,7 @@
 .PHONY: help clean test
 .DEFAULT_GOAL := help
 
-DOCKER_REPO="ovalmoney/celery-exporter"
+DOCKER_REPO="REDLattice/celery-exporter"
 DOCKER_VERSION="latest"
 
 define PRINT_HELP_PYSCRIPT
