@@ -1,5 +1,7 @@
 # Celery Exporter
 
+[![test](https://github.com/REDLattice/celery-exporter/actions/workflows/test.yml/badge.svg)](https://github.com/REDLattice/celery-exporter/actions/workflows/test.yml)
+
 Celery Exporter is a Prometheus metrics exporter for Celery 4, written in python.
 
 Here the list of exposed metrics:
