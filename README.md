@@ -28,15 +28,6 @@ Celery Exporter is able to enable events on your workers (see _Command Options_)
 ---
 ## Install and Run
 
-### Manual Setup
-```bash
-# Install
-$ pip install celery-exporter
-
-# Run
-$ celery-exporter
-```
-
 ### Docker
 ```bash
 # Download image
@@ -46,32 +37,16 @@ $ docker pull REDLattice/celery-exporter
 $ docker run -it --rm REDLattice/celery-exporter
 ```
 
-### Command Options
+#### Environment Variables
 
-```bash
-$ celery-exporter --help
-Usage: celery-exporter [OPTIONS]
+The module exports an ASGI factory that you can run with something like `uvicorn`. In order to set the broker URL or the metric namespace, use the following environment variables:
 
-Options:
-  -b, --broker-url TEXT      URL to the Celery broker.  [env var:
-                             CELERY_EXPORTER_BROKER_URL; default:
-                             redis://redis:6379/0]
-  -l, --listen-address TEXT  Address the HTTPD should listen on.  [env var:
-                             CELERY_EXPORTER_LISTEN_ADDRESS; default:
-                             0.0.0.0:9540]
-  -m, --max-tasks INTEGER    Tasks cache size.  [env var:
-                             CELERY_EXPORTER_MAX_TASKS; default: 10000]
-  -n, --namespace TEXT       Namespace for metrics.  [env var:
-                             CELERY_EXPORTER_NAMESPACE; default: celery]
-  --transport-options TEXT   JSON object with additional options passed to the
-                             underlying transport.
-  --enable-events            Periodically enable Celery events.
-  --tz TEXT                  Timezone used by the celery app.
-  --verbose                  Enable verbose logging.
-  --version                  Show the version and exit.
-  --help                     Show this message and exit.
+```
+CELERY_EXPORTER_BROKER_URL=redis://redis:6379/0
+CELERY_EXPORTER_NAMESPACE=celery
 ```
 
+_Previous versions of `celery-exporter` supported setting SSL parameters for communicating with the broker. These are currently not implemented in this version._
 
 If you then look at the exposed metrics, you should see something like this:
 ```bash
