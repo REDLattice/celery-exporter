@@ -18,7 +18,7 @@ export PRINT_HELP_PYSCRIPT
 all: clean test docker_build ## Clean and Build
 
 clean: ## Clean folders
-	rm -rf dist/ *.egg-info
+	rm -rf dist/ *.egg-info .tox ./**/__pycache__ .coverage
 
 test: ## Run tests and coverage
 	coverage run -m pytest test/ \

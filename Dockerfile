@@ -3,9 +3,7 @@ FROM ghcr.io/pyo3/maturin as build
 COPY . /io
 RUN maturin build --release -o /src/wheelhouse -i python3.9
 
-FROM python:3.9-buster as base-image
-
-ENV LANG=C.UTF-8
+FROM python:3.9-slim as base-image
 
 ARG BUILD_DATE
 ARG DOCKER_REPO
@@ -22,7 +20,7 @@ LABEL org.label-schema.schema-version="1.0" \
 
 WORKDIR /app/
 
-COPY --from=build-rs /src/wheelhouse/ /app/wheelhouse/
+COPY --from=build /src/wheelhouse/ /app/wheelhouse/
 
 COPY requirements/ ./requirements
 RUN pip install uvicorn
